@@ -1,0 +1,90 @@
+[
+  {
+    "nom": "CHU Yalgado Ouédraogo",
+    "adresse": "Avenue de la Nation, Secteur 4",
+    "ville": "Ouagadougou",
+    "telephone": "+226 25 30 66 44",
+    "horaires": "Lun-Ven 07h30-17h00",
+    "distance_km": 2.3,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre1_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre1_moore.mp3"
+  },
+  {
+    "nom": "CMA du Secteur 30",
+    "adresse": "Secteur 30, Arrondissement 10",
+    "ville": "Ouagadougou",
+    "telephone": "+226 25 36 12 00",
+    "horaires": "Lun-Sam 07h00-17h00",
+    "distance_km": 5.1,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre2_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre2_moore.mp3"
+  },
+  {
+    "nom": "CSPS Pissy",
+    "adresse": "Quartier Pissy, Secteur 17",
+    "ville": "Ouagadougou",
+    "telephone": "+226 25 30 09 11",
+    "horaires": "Lun-Ven 07h30-16h30",
+    "distance_km": 7.8,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre3_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre3_moore.mp3"
+  },
+  {
+    "nom": "CMA Paul VI",
+    "adresse": "Quartier Gounghin, Secteur 6",
+    "ville": "Ouagadougou",
+    "telephone": "+226 25 36 20 11",
+    "horaires": "Lun-Sam 07h00-17h30",
+    "distance_km": 4.2,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre4_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre4_moore.mp3"
+  },
+  {
+    "nom": "CSPS Karpala",
+    "adresse": "Quartier Karpala, Secteur 52",
+    "ville": "Ouagadougou",
+    "telephone": "+226 25 38 44 10",
+    "horaires": "Lun-Ven 07h30-16h30",
+    "distance_km": 9.1,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre5_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre5_moore.mp3"
+  },
+  {
+    "nom": "CHU Souro Sanou",
+    "adresse": "Boulevard de la Révolution",
+    "ville": "Bobo-Dioulasso",
+    "telephone": "+226 20 97 00 32",
+    "horaires": "Lun-Ven 07h30-17h00",
+    "distance_km": 1.5,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre6_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre6_moore.mp3"
+  },
+  {
+    "nom": "CMA Sector 22 Bobo",
+    "adresse": "Secteur 22, Bobo-Dioulasso",
+    "ville": "Bobo-Dioulasso",
+    "telephone": "+226 20 98 11 22",
+    "horaires": "Lun-Sam 07h00-17h00",
+    "distance_km": 3.8,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre7_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre7_moore.mp3"
+  },
+  {
+    "nom": "CHR de Koudougou",
+    "adresse": "Avenue Naba Koom, Koudougou",
+    "ville": "Koudougou",
+    "telephone": "+226 25 44 00 14",
+    "horaires": "Lun-Ven 07h30-17h00",
+    "distance_km": 1.2,
+    "actif": 1,
+    "audio_fr": "assets/audio/fr/centre8_fr.mp3",
+    "audio_moore": "assets/audio/moore/centre8_moore.mp3"
+  }
+]

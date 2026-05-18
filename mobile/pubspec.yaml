@@ -1,0 +1,43 @@
+name: pag_laafi
+description: Application de prévention du cancer du sein au Burkina Faso.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sqflite: ^2.3.0
+  path: ^1.9.0
+  path_provider: ^2.1.3
+  provider: ^6.1.2
+  just_audio: ^0.9.39
+  flutter_local_notifications: ^17.0.0
+  timezone: ^0.9.4
+  uuid: ^4.4.0
+  shared_preferences: ^2.2.3
+  connectivity_plus: ^6.0.3
+  http: ^1.2.1
+  url_launcher: ^6.2.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/questions.json
+    - assets/data/contenus.json
+    - assets/data/centres.json
+    - assets/data/etapes_examen.json
+    - assets/images/
+    - assets/images/etapes/
+    - assets/audio/fr/
+    - assets/audio/moore/
+    - assets/audio/dioula/
+    - assets/audio/fulfude/
+    - assets/videos/

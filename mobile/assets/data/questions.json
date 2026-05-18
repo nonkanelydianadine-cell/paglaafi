@@ -1,0 +1,125 @@
+[
+  {
+    "ordre": 1,
+    "type_reponse": "choix_multiple",
+    "poids_max": 3,
+    "enonce_fr": "Avez-vous déjà remarqué une masse ou un durcissement dans votre sein ?",
+    "enonce_moore": "Tɩ laa tɩ a n yaa ka taabre walla tɩ a n yaa ka taabre tɩ a n yaa ka taabre?",
+    "enonce_dioula": "Yala i ye fɛn dɔ lajɛ i ka bolo kɔnɔ walima kɔngɔya dɔ wa?",
+    "enonce_fulfude": "A heɓii ko a yi'i kooɓe walla tiiɗnde nder bewol ma?",
+    "options": [
+      {"texte_fr": "Oui, souvent", "poids": 3},
+      {"texte_fr": "Parfois", "poids": 1},
+      {"texte_fr": "Non / Jamais", "poids": 0},
+      {"texte_fr": "Je ne suis pas sûre", "poids": 0}
+    ]
+  },
+  {
+    "ordre": 2,
+    "type_reponse": "choix_multiple",
+    "poids_max": 3,
+    "enonce_fr": "Avez-vous des antécédents familiaux de cancer du sein ?",
+    "enonce_moore": "Tɩ laa tɩ a n yaa ka taabre tɩ a n yaa ka taabre?",
+    "enonce_dioula": "Yala i denbaya fɛnw kɔnɔ kɔnɔna dɔ bɛ yen wa?",
+    "enonce_fulfude": "A heɓii ko yimɓe galle ma njotti kooɓe?",
+    "options": [
+      {"texte_fr": "Oui, proche (mère, sœur)", "poids": 3},
+      {"texte_fr": "Oui, éloigné", "poids": 2},
+      {"texte_fr": "Non", "poids": 0},
+      {"texte_fr": "Je ne sais pas", "poids": 0}
+    ]
+  },
+  {
+    "ordre": 3,
+    "type_reponse": "oui_non",
+    "poids_max": 2,
+    "enonce_fr": "Avez-vous plus de 40 ans ?",
+    "enonce_moore": "Tɩ laa tɩ a n yaa ka taabre tɩ a n yaa ka taabre?",
+    "enonce_dioula": "Yala i ka cɛ i san 40 wa?",
+    "enonce_fulfude": "A heɓii ko a heewi duuɓi 40?",
+    "options": [
+      {"texte_fr": "Oui", "poids": 2},
+      {"texte_fr": "Non", "poids": 0},
+      {"texte_fr": "Je ne sais pas", "poids": 0}
+    ]
+  },
+  {
+    "ordre": 4,
+    "type_reponse": "choix_multiple",
+    "poids_max": 2,
+    "enonce_fr": "Ressentez-vous des douleurs au sein sans relation avec vos règles ?",
+    "options": [
+      {"texte_fr": "Oui, régulièrement", "poids": 2},
+      {"texte_fr": "Parfois", "poids": 1},
+      {"texte_fr": "Non / Jamais", "poids": 0},
+      {"texte_fr": "Je ne suis pas sûre", "poids": 0}
+    ]
+  },
+  {
+    "ordre": 5,
+    "type_reponse": "choix_multiple",
+    "poids_max": 3,
+    "enonce_fr": "Avez-vous remarqué des changements au niveau du mamelon (rétraction, écoulement) ?",
+    "options": [
+      {"texte_fr": "Oui", "poids": 3},
+      {"texte_fr": "Non", "poids": 0},
+      {"texte_fr": "Je ne sais pas", "poids": 0}
+    ]
+  },
+  {
+    "ordre": 6,
+    "type_reponse": "choix_multiple",
+    "poids_max": 2,
+    "enonce_fr": "Pratiquez-vous régulièrement l'auto-examen des seins ?",
+    "options": [
+      {"texte_fr": "Oui, chaque mois", "poids": 0},
+      {"texte_fr": "Parfois", "poids": 1},
+      {"texte_fr": "Non / Jamais", "poids": 2},
+      {"texte_fr": "Je ne sais pas comment faire", "poids": 2}
+    ]
+  },
+  {
+    "ordre": 7,
+    "type_reponse": "choix_multiple",
+    "poids_max": 2,
+    "enonce_fr": "Avez-vous déjà consulté un professionnel de santé pour un dépistage ?",
+    "options": [
+      {"texte_fr": "Oui, régulièrement", "poids": 0},
+      {"texte_fr": "Une fois", "poids": 1},
+      {"texte_fr": "Non / Jamais", "poids": 2}
+    ]
+  },
+  {
+    "ordre": 8,
+    "type_reponse": "choix_multiple",
+    "poids_max": 2,
+    "enonce_fr": "Consommez-vous de l'alcool régulièrement ?",
+    "options": [
+      {"texte_fr": "Oui, souvent", "poids": 2},
+      {"texte_fr": "Occasionnellement", "poids": 1},
+      {"texte_fr": "Non / Jamais", "poids": 0}
+    ]
+  },
+  {
+    "ordre": 9,
+    "type_reponse": "choix_multiple",
+    "poids_max": 2,
+    "enonce_fr": "Faites-vous suffisamment d'activité physique ?",
+    "options": [
+      {"texte_fr": "Oui, régulièrement", "poids": 0},
+      {"texte_fr": "Parfois", "poids": 1},
+      {"texte_fr": "Non / Rarement", "poids": 2}
+    ]
+  },
+  {
+    "ordre": 10,
+    "type_reponse": "choix_multiple",
+    "poids_max": 3,
+    "enonce_fr": "Avez-vous remarqué des changements de la peau du sein (creux, rougeur, eczéma) ?",
+    "options": [
+      {"texte_fr": "Oui", "poids": 3},
+      {"texte_fr": "Non", "poids": 0},
+      {"texte_fr": "Je ne sais pas", "poids": 0}
+    ]
+  }
+]
