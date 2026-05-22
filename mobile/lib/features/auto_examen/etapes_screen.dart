@@ -19,27 +19,32 @@ class _EtapesScreenState extends State<EtapesScreen> {
     final etapesFr = [
       {
         'titre': 'Préparation',
-        'desc': 'Choisissez un moment calme. Vous pouvez être sous la douche, allongée ou debout devant un miroir.',
+        'desc':
+            'Choisissez un moment calme. Vous pouvez être sous la douche, allongée ou debout devant un miroir.',
         'icone': Icons.self_improvement,
       },
       {
         'titre': 'Observation devant le miroir',
-        'desc': 'Regardez vos seins dans le miroir, bras le long du corps puis levés. Vérifiez la forme, la peau, les mamelons.',
+        'desc':
+            'Regardez vos seins dans le miroir, bras le long du corps puis levés. Vérifiez la forme, la peau, les mamelons.',
         'icone': Icons.visibility,
       },
       {
         'titre': 'Palpation debout',
-        'desc': 'Levez le bras gauche, palpez le sein gauche avec les doigts de la main droite en mouvements circulaires.',
+        'desc':
+            'Levez le bras gauche, palpez le sein gauche avec les doigts de la main droite en mouvements circulaires.',
         'icone': Icons.pan_tool,
       },
       {
         'titre': 'Palpation couchée',
-        'desc': 'Allongez-vous, placez un coussin sous l\'épaule gauche et palpez le sein gauche avec la main droite.',
+        'desc':
+            'Allongez-vous, placez un coussin sous l\'épaule gauche et palpez le sein gauche avec la main droite.',
         'icone': Icons.bed,
       },
       {
         'titre': 'Vérification du mamelon',
-        'desc': 'Pressez doucement le mamelon pour vérifier s\'il y a un écoulement anormal.',
+        'desc':
+            'Pressez doucement le mamelon pour vérifier s\'il y a un écoulement anormal.',
         'icone': Icons.circle_outlined,
       },
       {
@@ -54,7 +59,8 @@ class _EtapesScreenState extends State<EtapesScreen> {
       },
       {
         'titre': 'Notez vos observations',
-        'desc': 'Notez ce que vous avez ressenti. En cas de doute, consultez un professionnel.',
+        'desc':
+            'Notez ce que vous avez ressenti. En cas de doute, consultez un professionnel.',
         'icone': Icons.edit_note,
       },
     ];
@@ -175,10 +181,11 @@ class _EtapesScreenState extends State<EtapesScreen> {
                           child: OutlinedButton.icon(
                             onPressed: () => setState(() => _etapeActuelle--),
                             icon: const Icon(Icons.arrow_back),
-                            label: Text(langue == 'moore' ? 'Bãag' : 'Précédent'),
+                            label: Text(_labelPrecedent(langue)),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: AppColors.roseFonce,
-                              side: const BorderSide(color: AppColors.roseFonce),
+                              side:
+                                  const BorderSide(color: AppColors.roseFonce),
                               padding: const EdgeInsets.symmetric(vertical: 14),
                             ),
                           ),
@@ -193,7 +200,7 @@ class _EtapesScreenState extends State<EtapesScreen> {
                               Navigator.pop(context);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(langue == 'moore' ? 'Auto-examen wãã!' : 'Auto-examen terminé !'),
+                                  content: Text(_labelTermine(langue)),
                                   backgroundColor: AppColors.roseFonce,
                                 ),
                               );
@@ -206,8 +213,8 @@ class _EtapesScreenState extends State<EtapesScreen> {
                           ),
                           label: Text(
                             _etapeActuelle < etapes.length - 1
-                                ? (langue == 'moore' ? 'Yɩɩd' : 'Suivant')
-                                : (langue == 'moore' ? 'Wãã' : 'Terminer'),
+                                ? _labelSuivant(langue)
+                                : _labelTerminer(langue),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.roseFonce,
@@ -225,5 +232,57 @@ class _EtapesScreenState extends State<EtapesScreen> {
         ],
       ),
     );
+  }
+
+  String _labelPrecedent(String l) {
+    switch (l) {
+      case 'moore':
+        return 'Bãag';
+      case 'dioula':
+        return 'Kɔfɛ';
+      case 'fulfude':
+        return 'Yeeso';
+      default:
+        return 'Précédent';
+    }
+  }
+
+  String _labelSuivant(String l) {
+    switch (l) {
+      case 'moore':
+        return 'Yɩɩd';
+      case 'dioula':
+        return 'Tɛmɛ';
+      case 'fulfude':
+        return 'Yeeso';
+      default:
+        return 'Suivant';
+    }
+  }
+
+  String _labelTerminer(String l) {
+    switch (l) {
+      case 'moore':
+        return 'Wãã';
+      case 'dioula':
+        return 'Lɔgɔ';
+      case 'fulfude':
+        return 'Timmal';
+      default:
+        return 'Terminer';
+    }
+  }
+
+  String _labelTermine(String l) {
+    switch (l) {
+      case 'moore':
+        return 'Auto-examen wãã!';
+      case 'dioula':
+        return 'Auto-examen lɔgɔra!';
+      case 'fulfude':
+        return 'Auto-examen timmii!';
+      default:
+        return 'Auto-examen terminé !';
+    }
   }
 }

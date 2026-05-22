@@ -58,7 +58,7 @@ class RappelsViewModel extends ChangeNotifier {
   /// Active ou désactive un rappel
   Future<void> toggleRappel(Rappel rappel) async {
     final nouvelEtat = !rappel.actif;
-    
+
     await _rappelRepo.toggleActif(rappel.id!, nouvelEtat);
 
     final index = _rappels.indexWhere((r) => r.id == rappel.id);
@@ -81,7 +81,7 @@ class RappelsViewModel extends ChangeNotifier {
     if (index == -1) return;
 
     final rappel = _rappels[index];
-    
+
     await _rappelRepo.mettreAJourRappel(
       rappelId,
       frequence: frequence,
@@ -98,7 +98,7 @@ class RappelsViewModel extends ChangeNotifier {
     if (index == -1) return;
 
     final rappel = _rappels[index];
-    
+
     await _rappelRepo.mettreAJourRappel(
       rappelId,
       frequence: rappel.frequence,
@@ -122,9 +122,10 @@ class RappelsViewModel extends ChangeNotifier {
           await _rappelRepo.mettreAJour(rappel);
         }
       }
-      
+
       await NotificationService.instance.reprogrammerTous(_rappels);
-      debugPrint('RappelsViewModel : ${_rappels.where((r) => r.actif).length} rappels programmés');
+      debugPrint(
+          'RappelsViewModel : ${_rappels.where((r) => r.actif).length} rappels programmés');
     } catch (e) {
       debugPrint('RappelsViewModel.enregistrer() erreur : $e');
     } finally {
@@ -138,14 +139,20 @@ class RappelsViewModel extends ChangeNotifier {
       'auto_examen': {
         'fr': 'Auto-examen mensuel',
         'moore': 'Auto-examen mens-mens',
+        'dioula': 'Auto-examen kalo-kalo',
+        'fulfude': 'Auto-examen le-le',
       },
       'consultation': {
         'fr': 'Consultation médicale',
         'moore': 'Kẽng laafi rogem',
+        'dioula': 'Klinikan taa',
+        'fulfude': 'Yah laawol janngirde',
       },
       'info': {
         'fr': 'Lire une info santé',
         'moore': 'Karm laafi kõ',
+        'dioula': 'Kɛnɛya kunnafoni kalan',
+        'fulfude': 'Jaŋgo haala cellal',
       },
     };
     return labels[type]?[langue] ?? labels[type]?['fr'] ?? type;
@@ -153,9 +160,24 @@ class RappelsViewModel extends ChangeNotifier {
 
   static String labelFrequence(String frequence, String langue) {
     const labels = {
-      'quotidien': {'fr': 'Quotidien',    'moore': 'Rasem'},
-      'hebdo':     {'fr': 'Hebdomadaire', 'moore': 'Vʋʋs fãa'},
-      'mensuel':   {'fr': 'Mensuel',      'moore': 'Yʋʋm-vʋʋs'},
+      'quotidien': {
+        'fr': 'Quotidien',
+        'moore': 'Rasem',
+        'dioula': 'Tile-tile',
+        'fulfude': 'Ñalawma fof'
+      },
+      'hebdo': {
+        'fr': 'Hebdomadaire',
+        'moore': 'Vʋʋs fãa',
+        'dioula': 'Dɔgɔw-saba',
+        'fulfude': 'Yontere fof'
+      },
+      'mensuel': {
+        'fr': 'Mensuel',
+        'moore': 'Yʋʋm-vʋʋs',
+        'dioula': 'Kalo kelen',
+        'fulfude': 'Lewru fof'
+      },
     };
     return labels[frequence]?[langue] ?? labels[frequence]?['fr'] ?? frequence;
   }

@@ -63,7 +63,8 @@ class LangueScreen extends StatelessWidget {
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 200),
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 16,
+                              horizontal: 20,
+                              vertical: 16,
                             ),
                             decoration: BoxDecoration(
                               color: selectionnee
@@ -81,7 +82,8 @@ class LangueScreen extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         labels['nom']!,
@@ -113,7 +115,8 @@ class LangueScreen extends StatelessWidget {
                                     backgroundColor: AppColors.roseVif,
                                     foregroundColor: Colors.white,
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 12, vertical: 8,
+                                      horizontal: 12,
+                                      vertical: 8,
                                     ),
                                     minimumSize: Size.zero,
                                     shape: RoundedRectangleBorder(
@@ -138,11 +141,17 @@ class LangueScreen extends StatelessWidget {
                       onPressed: vm.chargement
                           ? null
                           : () async {
+                              final langue = vm.langueSelectionnee;
                               await context
                                   .read<LangueViewModel>()
                                   .confirmerLangue();
                               if (!context.mounted) return;
-                              // Retour à l'accueil au lieu de pushReplacement
+                              // Mettre à jour HomeViewModel pour que toutes
+                              // les pages reflètent immédiatement la nouvelle langue
+                              await context
+                                  .read<HomeViewModel>()
+                                  .changerLangue(langue);
+                              if (!context.mounted) return;
                               context.read<HomeViewModel>().changerOnglet(0);
                             },
                       style: OutlinedButton.styleFrom(
