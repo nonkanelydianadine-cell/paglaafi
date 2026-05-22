@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_routes.dart';
+import '../../core/utils/risk_calculator.dart';
 import '../../core/widgets/app_header.dart';
 import '../../data/models/auto_evaluation.dart';
 import '../home/home_viewmodel.dart';
@@ -125,7 +126,12 @@ class ResultatScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          evaluation.messageOrientation,
+                          evaluation.messageOrientation.isNotEmpty
+                              ? evaluation.messageOrientation
+                              : RiskCalculator.messageOrientation(
+                                  niveau: evaluation.niveauRisque,
+                                  langue: langue,
+                                ),
                           style: const TextStyle(
                             fontSize: 13,
                             color: AppColors.texteSecondaire,
