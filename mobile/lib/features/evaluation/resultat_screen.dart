@@ -56,8 +56,8 @@ class ResultatScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 14),
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 14, vertical: 6),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                   decoration: BoxDecoration(
                     color: _couleurFond(evaluation.niveauRisque),
                     borderRadius: BorderRadius.circular(20),
@@ -74,10 +74,8 @@ class ResultatScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  HistoriqueViewModel.formaterDate(
-                      evaluation.dateEvaluation),
-                  style: const TextStyle(
-                      color: Colors.white70, fontSize: 12),
+                  HistoriqueViewModel.formaterDate(evaluation.dateEvaluation),
+                  style: const TextStyle(color: Colors.white70, fontSize: 12),
                 ),
               ],
             ),
@@ -89,56 +87,67 @@ class ResultatScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Message d'orientation
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border(
-                        left: const BorderSide(
-                            color: AppColors.roseVif, width: 4),
-                        top: const BorderSide(color: AppColors.roseClair),
-                        right: const BorderSide(color: AppColors.roseClair),
-                        bottom: const BorderSide(color: AppColors.roseClair),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(14),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: AppColors.roseClair),
                       ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
+                      child: IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            const Icon(
-                              Icons.analytics_outlined,
-                              size: 18,
-                              color: AppColors.roseFonce,
+                            Container(
+                              width: 4,
+                              color: AppColors.roseVif,
                             ),
-                            const SizedBox(width: 8),
-                            const Text(
-                              'Vos résultats',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.roseFonce,
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.analytics_outlined,
+                                          size: 18,
+                                          color: AppColors.roseFonce,
+                                        ),
+                                        const SizedBox(width: 8),
+                                        const Text(
+                                          'Vos résultats',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColors.roseFonce,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      evaluation.messageOrientation.isNotEmpty
+                                          ? evaluation.messageOrientation
+                                          : RiskCalculator.messageOrientation(
+                                              niveau: evaluation.niveauRisque,
+                                              langue: langue,
+                                            ),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: AppColors.texteSecondaire,
+                                        height: 1.6,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
-                        Text(
-                          evaluation.messageOrientation.isNotEmpty
-                              ? evaluation.messageOrientation
-                              : RiskCalculator.messageOrientation(
-                                  niveau: evaluation.niveauRisque,
-                                  langue: langue,
-                                ),
-                          style: const TextStyle(
-                            fontSize: 13,
-                            color: AppColors.texteSecondaire,
-                            height: 1.6,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -178,8 +187,8 @@ class ResultatScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton.icon(
-                      onPressed: () => Navigator.pushNamed(
-                          context, AppRoutes.centres),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.centres),
                       icon: const Icon(Icons.local_hospital_outlined,
                           color: Colors.white),
                       label: const Text('Voir les centres de santé'),
@@ -197,8 +206,8 @@ class ResultatScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton.icon(
-                      onPressed: () => Navigator.pushNamed(
-                          context, AppRoutes.rappels),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.rappels),
                       icon: const Icon(Icons.notifications_outlined),
                       label: const Text('Activer les rappels'),
                       style: OutlinedButton.styleFrom(
@@ -237,25 +246,34 @@ class ResultatScreen extends StatelessWidget {
 
   Color _couleurFond(String niveau) {
     switch (niveau) {
-      case 'faible': return AppColors.risqueFaibleFond;
-      case 'modere': return AppColors.risqueModereFond;
-      default:       return AppColors.risqueEleveFond;
+      case 'faible':
+        return AppColors.risqueFaibleFond;
+      case 'modere':
+        return AppColors.risqueModereFond;
+      default:
+        return AppColors.risqueEleveFond;
     }
   }
 
   Color _couleurTexte(String niveau) {
     switch (niveau) {
-      case 'faible': return AppColors.risqueFaible;
-      case 'modere': return AppColors.risqueModere;
-      default:       return AppColors.risqueEleve;
+      case 'faible':
+        return AppColors.risqueFaible;
+      case 'modere':
+        return AppColors.risqueModere;
+      default:
+        return AppColors.risqueEleve;
     }
   }
 
   IconData _icone(String niveau) {
     switch (niveau) {
-      case 'faible': return Icons.check_circle_outline;
-      case 'modere': return Icons.warning_amber_outlined;
-      default:       return Icons.error_outline;
+      case 'faible':
+        return Icons.check_circle_outline;
+      case 'modere':
+        return Icons.warning_amber_outlined;
+      default:
+        return Icons.error_outline;
     }
   }
 }

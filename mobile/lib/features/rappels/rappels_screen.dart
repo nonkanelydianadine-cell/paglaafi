@@ -73,7 +73,13 @@ class _RappelsScreenState extends State<RappelsScreen>
         children: [
           AppHeader(
             titre: 'Mes rappels',
-            onBack: () => context.read<HomeViewModel>().changerOnglet(0),
+            onBack: () {
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              } else {
+                context.read<HomeViewModel>().changerOnglet(0);
+              }
+            },
           ),
           Expanded(
             child: vm.chargement

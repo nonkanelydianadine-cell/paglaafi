@@ -17,7 +17,7 @@ class DetailEvaluationScreen extends StatefulWidget {
 }
 
 class _DetailEvaluationScreenState extends State<DetailEvaluationScreen> {
-  late AutoEvaluation _evaluation;
+  AutoEvaluation? _evaluation;
   List<Reponse>? _reponses;
   bool _chargement = true;
   String? _erreur;
@@ -53,10 +53,17 @@ class _DetailEvaluationScreenState extends State<DetailEvaluationScreen> {
 
     try {
       final repo = context.read<EvaluationRepository>();
-      debugPrint(
-          'Chargement des réponses pour évaluation ID: ${_evaluation.id}');
+      final eval = _evaluation;
+      if (eval == null || eval.id == null) {
+        setState(() {
+          _chargement = false;
+          _erreur = 'Aucune évaluation';
+        });
+        return;
+      }
+      debugPrint('Chargement des réponses pour évaluation ID: ${eval.id}');
 
-      final reponses = await repo.getReponses(_evaluation.id!);
+      final reponses = await repo.getReponses(eval.id!);
 
       debugPrint('Réponses chargées: ${reponses.length}');
 
@@ -82,21 +89,29 @@ class _DetailEvaluationScreenState extends State<DetailEvaluationScreen> {
   Widget build(BuildContext context) {
     final langue = context.watch<HomeViewModel>().langueActive;
 
-    if (_chargement && _erreur != null) {
-      return Scaffold(
-        appBar: AppBar(title: const Text('Détail')),
-        body: Center(child: Text(_erreur ?? 'Erreur')),
+    if (_chargement) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(color: AppColors.roseVif),
+        ),
       );
     }
 
-    if (!_chargement && _evaluation.id == null) {
+    if (_erreur != null) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Détail')),
+        body: Center(child: Text(_erreur!)),
+      );
+    }
+
+    if (_evaluation == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Détail')),
         body: const Center(child: Text('Aucune évaluation')),
       );
     }
 
-    final evaluation = _evaluation;
+    final evaluation = _evaluation!;
 
     final couleur = evaluation.niveauRisque == 'faible'
         ? AppColors.risqueFaible
